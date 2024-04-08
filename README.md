@@ -15,7 +15,7 @@ The elapsed time is calculate as the difference between the `CFAbsoluteTimeGetCu
 
 You can increase the number of rows generated simply changing the upper bound in the ForEach, but take care that the rendering time will increase dramatically in UIKit:
 
-## Values obtained on physical device iPhone 7 - 128GB - iOS 15.8.2
+## Values measured on physical device iPhone 7 - 128GB - iOS 15.8.2
 
 | Number of rows | Rendering time SwiftUI | Rendering time UIKit |
 | --- | --- | --- |
