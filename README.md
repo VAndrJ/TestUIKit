@@ -1,4 +1,4 @@
-# A simple project to render a UI Layout in UIKit
+# A simple project to render a UI Layout in UIKit getting the rendering time to compare against SwiftUI
 
 The layout consist in a simple UIScrollView having a content View and a nested UIStackView containing 100 rows.
 Each row has its own layout consisting in a UIStackView containing an UIImageView and a UILabel.
