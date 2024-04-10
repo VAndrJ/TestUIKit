@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(timeLabel)
         timeLabel.text = "Time to render: \(elapsedTime) seconds"
 
-        (1...100).forEach { index in
+        (1...1000).forEach { index in
             stackView.addArrangedSubview(row(image: "globe", text: "Hello, world #\(index)!"))
         }
     }
@@ -74,6 +74,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         elapsedTime = CFAbsoluteTimeGetCurrent() - start
         timeLabel.text = "Time to render: \(elapsedTime) seconds"
+        print(CFAbsoluteTimeGetCurrent() - initTime)
     }
 
     private func row(image: String, text: String) -> UIView {

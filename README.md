@@ -24,3 +24,9 @@ Project built as Release target with optimization and directly deployed on the d
 | 500 rows | 0.2s | 4.0s | 
 | 1000 rows | 0.33s | 29.34s | *** The rendering time for UIKit is so long that Apple close the app if you don't build and run directly from XCode ***
 
+Full measurement time iOS 17.2 simulator (on M1)
+| Number of rows | Rendering time SwiftUI | Rendering time UIKit |
+| --- | --- | --- |
+| 100 rows | 0.0918s | 0.0806s | 
+| 500 rows | 0.1386s | 0.9491s | 
+| 1000 rows | 0.2062s | 10.4252s |

@@ -7,10 +7,16 @@
 
 import UIKit
 
+var initTime: CFAbsoluteTime!
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    override init() {
+        initTime = CFAbsoluteTimeGetCurrent()
 
+        super.init()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
