@@ -30,10 +30,6 @@ class MainView: BaseScrollView {
     private func addElements() {
         addSubview(contentView)
 
-        contentView.addSubview(timeLabel)
-        views.forEach {
-            contentView.addSubview($0)
-        }
         contentView.flex.direction(.column).padding(8).define { flex in
             flex.addItem(timeLabel).height(20)
             views.forEach {
