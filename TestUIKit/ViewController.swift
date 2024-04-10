@@ -53,7 +53,7 @@ class RowView: BaseView {
         textView.text = text
         flex.direction(.row).alignItems(.center).define { flex in
             flex.addItem(imageView).size(Self.imageSize)
-            flex.addItem(textView).paddingLeft(8)
+            flex.addItem(textView).marginLeft(8)
         }
     }
 }
