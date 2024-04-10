@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A3CF3EAE2BC734030093FAD3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3CF3EAD2BC734030093FAD3 /* README.md */; };
+		A3CF3EB12BC738870093FAD3 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A3CF3EB02BC738870093FAD3 /* PinLayout */; };
+		A3CF3EB42BC738950093FAD3 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A3CF3EB32BC738950093FAD3 /* FlexLayout */; };
+		A3CF3EB62BC739070093FAD3 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF3EB52BC739070093FAD3 /* Base.swift */; };
 		BAE1481C2BC3F38B00736A01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1481B2BC3F38B00736A01 /* AppDelegate.swift */; };
 		BAE1481E2BC3F38B00736A01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1481D2BC3F38B00736A01 /* SceneDelegate.swift */; };
 		BAE148202BC3F38B00736A01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1481F2BC3F38B00736A01 /* ViewController.swift */; };
-		BAE148232BC3F38B00736A01 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BAE148222BC3F38B00736A01 /* Base */; };
 		BAE148252BC3F38E00736A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE148242BC3F38E00736A01 /* Assets.xcassets */; };
 		BAE148282BC3F38E00736A01 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BAE148272BC3F38E00736A01 /* Base */; };
 		BAE148332BC3F38E00736A01 /* TestUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE148322BC3F38E00736A01 /* TestUIKitTests.swift */; };
@@ -38,11 +40,11 @@
 
 /* Begin PBXFileReference section */
 		A3CF3EAD2BC734030093FAD3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A3CF3EB52BC739070093FAD3 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		BAE148182BC3F38B00736A01 /* TestUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE1481B2BC3F38B00736A01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAE1481D2BC3F38B00736A01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BAE1481F2BC3F38B00736A01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BAE148222BC3F38B00736A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAE148242BC3F38E00736A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE148272BC3F38E00736A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE148292BC3F38E00736A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CF3EB12BC738870093FAD3 /* PinLayout in Frameworks */,
+				A3CF3EB42BC738950093FAD3 /* FlexLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,10 +109,10 @@
 				BAE1481B2BC3F38B00736A01 /* AppDelegate.swift */,
 				BAE1481D2BC3F38B00736A01 /* SceneDelegate.swift */,
 				BAE1481F2BC3F38B00736A01 /* ViewController.swift */,
-				BAE148212BC3F38B00736A01 /* Main.storyboard */,
 				BAE148242BC3F38E00736A01 /* Assets.xcassets */,
 				BAE148262BC3F38E00736A01 /* LaunchScreen.storyboard */,
 				BAE148292BC3F38E00736A01 /* Info.plist */,
+				A3CF3EB52BC739070093FAD3 /* Base.swift */,
 			);
 			path = TestUIKit;
 			sourceTree = "<group>";
@@ -146,6 +150,10 @@
 			dependencies = (
 			);
 			name = TestUIKit;
+			packageProductDependencies = (
+				A3CF3EB02BC738870093FAD3 /* PinLayout */,
+				A3CF3EB32BC738950093FAD3 /* FlexLayout */,
+			);
 			productName = TestUIKit;
 			productReference = BAE148182BC3F38B00736A01 /* TestUIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +226,10 @@
 				Base,
 			);
 			mainGroup = BAE1480F2BC3F38B00736A01;
+			packageReferences = (
+				A3CF3EAF2BC738870093FAD3 /* XCRemoteSwiftPackageReference "PinLayout" */,
+				A3CF3EB22BC738950093FAD3 /* XCRemoteSwiftPackageReference "FlexLayout" */,
+			);
 			productRefGroup = BAE148192BC3F38B00736A01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,7 +249,6 @@
 				BAE148252BC3F38E00736A01 /* Assets.xcassets in Resources */,
 				BAE148282BC3F38E00736A01 /* Base in Resources */,
 				A3CF3EAE2BC734030093FAD3 /* README.md in Resources */,
-				BAE148232BC3F38B00736A01 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CF3EB62BC739070093FAD3 /* Base.swift in Sources */,
 				BAE148202BC3F38B00736A01 /* ViewController.swift in Sources */,
 				BAE1481C2BC3F38B00736A01 /* AppDelegate.swift in Sources */,
 				BAE1481E2BC3F38B00736A01 /* SceneDelegate.swift in Sources */,
@@ -301,14 +313,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BAE148212BC3F38B00736A01 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BAE148222BC3F38B00736A01 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BAE148262BC3F38E00736A01 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -451,7 +455,6 @@
 				INFOPLIST_FILE = TestUIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -480,7 +483,6 @@
 				INFOPLIST_FILE = TestUIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -613,6 +615,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A3CF3EAF2BC738870093FAD3 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.5;
+			};
+		};
+		A3CF3EB22BC738950093FAD3 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/FlexLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A3CF3EB02BC738870093FAD3 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3CF3EAF2BC738870093FAD3 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+		A3CF3EB32BC738950093FAD3 /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3CF3EB22BC738950093FAD3 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BAE148102BC3F38B00736A01 /* Project object */;
 }

@@ -37,3 +37,10 @@ Full measurement time without nested UIStackView iOS 17.2 simulator (on M1)
 | 100 rows | 0.0918s | 0.0682s | 1.18x |
 | 500 rows | 0.1386s | 0.2484s | 3.82x |
 | 1000 rows | 0.2062s | 0.6104s | 17.08x |
+
+Full measurement time Flex+PinLayout iOS 17.2 simulator (on M1)
+| Number of rows | Time UIKit | UIStackView slower |
+| --- | --- | --- |
+| 100 rows | 0.0512s | 1.57x |
+| 500 rows | 0.1348s | 7.04x |
+| 1000 rows | 0.2454s | 42.48x |

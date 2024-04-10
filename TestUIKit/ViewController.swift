@@ -1,102 +1,73 @@
 import UIKit
+import FlexLayout
+import PinLayout
 
-class ViewController: UIViewController {
+class MainView: BaseScrollView {
+    let timeLabel = UILabel()
 
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }()
+    private let contentView = UIView()
+    private let views = (0...1000).map { row(image: "globe", text: "Hello, world #\($0)!") }
 
-    private let contentView: UIView = {
-        let contentView = UIView()
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        return contentView
-    }()
+    override init() {
+        super.init()
 
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.distribution = .fill
-        return stackView
-    }()
+        addElements()
+        configure()
+    }
 
-    private let timeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private func configure() {
+        backgroundColor = .systemBackground
+    }
 
-    private let start = CFAbsoluteTimeGetCurrent()
-    private var elapsedTime: CFAbsoluteTime = 0
+    private func addElements() {
+        addSubview(contentView)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(scrollView)
-        contentView.addSubview(stackView)
-        scrollView.addSubview(contentView)
-
-        let contentViewCenterY = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
-        contentViewCenterY.priority = .defaultLow
-
-        let contentViewHeight = contentView.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor)
-        contentViewHeight.priority = .defaultLow
-
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
-            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            contentViewCenterY,
-            contentViewHeight,
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16.0),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.0),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16.0)
-        ])
-
-        stackView.addArrangedSubview(timeLabel)
-        timeLabel.text = "Time to render: \(elapsedTime) seconds"
-
-        (1...1000).forEach { index in
-            stackView.addArrangedSubview(row(image: "globe", text: "Hello, world #\(index)!"))
+        contentView.addSubview(timeLabel)
+        views.forEach {
+            contentView.addSubview($0)
+        }
+        contentView.flex.direction(.column).padding(8).define { flex in
+            flex.addItem(timeLabel).height(20)
+            views.forEach {
+                flex.addItem($0)
+            }
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        elapsedTime = CFAbsoluteTimeGetCurrent() - start
-        timeLabel.text = "Time to render: \(elapsedTime) seconds"
-        print(CFAbsoluteTimeGetCurrent() - initTime)
-    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
 
-    private func row(image: String, text: String) -> UIView {
-        let imageView = UIImageView(image: UIImage(systemName: image))
-        let textView = UILabel()
-        textView.text = text
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        let containerView = UIView()
-        containerView.addSubview(imageView)
-        containerView.addSubview(textView)
-        NSLayoutConstraint.activate([
-            containerView.heightAnchor.constraint(equalToConstant: 20),
-            imageView.widthAnchor.constraint(equalToConstant: 20),
-            imageView.heightAnchor.constraint(equalToConstant: 20),
-            imageView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            textView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 28),
-            textView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-        ])
-        
-        return containerView
+        contentView.pin.pinEdges().width(100%)
+        contentView.flex.layout(mode: .adjustHeight)
+        contentSize = contentView.frame.size
     }
 }
 
+class ViewController: BaseController<MainView> {
+    private let start = CFAbsoluteTimeGetCurrent()
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let currentTime = CFAbsoluteTimeGetCurrent()
+        print("init to viewDidAppear", currentTime - initTime)
+        contentView.timeLabel.text = "Time to render: \(currentTime - start) seconds"
+    }
+}
+
+private let imageSize = CGSize(width: 20, height: 20)
+
+private func row(image: String, text: String) -> UIView {
+    let imageView = UIImageView(image: UIImage(systemName: image))
+    let textView = UILabel()
+    textView.text = text
+    let containerView = UIView()
+    containerView.addSubview(imageView)
+    containerView.addSubview(textView)
+    containerView.flex.direction(.row).alignItems(.center).define { flex in
+        flex.addItem(imageView).size(imageSize)
+        flex.addItem(textView).paddingLeft(8)
+    }
+
+    return containerView
+}
