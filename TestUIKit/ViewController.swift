@@ -15,6 +15,14 @@ class MainView: BaseScrollView {
         configure()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        contentView.pin.pinEdges().width(100%)
+        contentView.flex.layout(mode: .adjustHeight)
+        contentSize = contentView.frame.size
+    }
+
     private func configure() {
         backgroundColor = .systemBackground
     }
@@ -32,14 +40,6 @@ class MainView: BaseScrollView {
                 flex.addItem($0)
             }
         }
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        contentView.pin.pinEdges().width(100%)
-        contentView.flex.layout(mode: .adjustHeight)
-        contentSize = contentView.frame.size
     }
 }
 
