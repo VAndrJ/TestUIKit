@@ -83,13 +83,20 @@ class ViewController: UIViewController {
         textView.text = text
         imageView.translatesAutoresizingMaskIntoConstraints = false
         textView.translatesAutoresizingMaskIntoConstraints = false
-        let stackView = UIStackView(arrangedSubviews: [imageView, textView])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = 8.0
-        return stackView
+        let containerView = UIView()
+        containerView.addSubview(imageView)
+        containerView.addSubview(textView)
+        NSLayoutConstraint.activate([
+            containerView.heightAnchor.constraint(equalToConstant: 20),
+            imageView.widthAnchor.constraint(equalToConstant: 20),
+            imageView.heightAnchor.constraint(equalToConstant: 20),
+            imageView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            textView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 28),
+            textView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+        ])
+        
+        return containerView
     }
 }
 
