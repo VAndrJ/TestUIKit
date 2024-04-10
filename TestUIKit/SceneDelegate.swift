@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = ViewController(view: .init())
+        window?.rootViewController = ViewController()
         print("window, views, and controller init", CFAbsoluteTimeGetCurrent() - initTime)
         window?.makeKeyAndVisible()
         print("inits + makeKeyAndVisible", CFAbsoluteTimeGetCurrent() - initTime)
